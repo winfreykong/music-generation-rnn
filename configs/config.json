@@ -1,0 +1,27 @@
+{
+	"learning_rate": 1e-3, 
+	
+	"sequence_size": 50, 
+	
+	"no_epochs": 260, 
+	
+	"no_layers": 4,
+
+	"hidden_size": 200, 
+
+	"dropout": 0.1,
+
+	"save_epoch": 20, 
+
+	"temperature": 0.5,  
+
+	"max_generation_length": 1000, 
+
+	"generated_song_file_path": "./song_generated.txt", 
+
+	"show_heatmap": false,
+
+	"evaluate_model_only": false, 
+
+	"model_path": "./checkpoint/ckpt_mdl_lstm_ep_260_hsize_200_dout_0.1.t19" 
+}

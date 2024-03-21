@@ -48,8 +48,8 @@ if __name__ == "__main__":
     no_layers = config["no_layers"]
     hidden_size = config["hidden_size"]
     dropout = config["dropout"]
-    model_type = config["model_type"]
-   
+
+    
     generated_song_file_path = config["generated_song_file_path"]
     evaluate_model_only = config["evaluate_model_only"]
     model_path = config["model_path"]
@@ -75,27 +75,6 @@ if __name__ == "__main__":
     else:
         # Train the model and get the training and validation losses
         losses, v_losses = train(model, data, data_val, char_idx_map, config, device)
-        
-        loss_plot_file_name = f"model={model_type} epochs={no_epochs} layers={no_layers} hidden_size={hidden_size} dropout={dropout} lr={learning_rate} max_len={MAX_GENERATION_LENGTH} temp={TEMPERATURE} seq_size={sequence_size} train_loss={np.round(losses[np.argmin(v_losses)],4)} val_loss={np.round(np.min(v_losses),4)}" 
-        
-        # Plot the training and validation losses
-        plot_losses(losses, v_losses, loss_plot_file_name)
-
-        
-    # As a fun exercise, after your model is well-trained you can see how the model extends Beethoven's famous fur-elise tune 
-#     with open("./data/fur_elise.txt", 'r') as file:
-#         prime_str = file.read()
-#     print(">>>>>>>>>> Extending Fur Elise <<<<<<<<<<<")
-    
-#     generated_song = generate_song(model, device, char_idx_map, max_len=MAX_GENERATION_LENGTH, temp=TEMPERATURE, 
-#                                     prime_str=prime_str, show_heatmap=SHOW_HEATMAP)
-
-#     with open(generated_fur_elise_file_path, "w") as file:
-#         file.write(generated_song)
-
-#     print("Generated song is written to : ", generated_fur_elise_file_path)
-
-    
 
     # Generate a song from scratch using the trained model
     prime_str = '<start>'
